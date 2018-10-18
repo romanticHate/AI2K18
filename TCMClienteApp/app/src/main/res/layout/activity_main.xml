@@ -1,9 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <android.support.v7.widget.CardView
+            android:id="@+id/titleCard"
+            android:layout_width="290dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
 
-</android.support.constraint.ConstraintLayout>
+                <TextView
+                    android:id="@+id/txtViewEnque"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/cardview_compat_inset_shadow"
+                    android:gravity="center"
+                    android:text="En que podemos ayudarle"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="24sp"/>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+    <LinearLayout
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <android.support.v7.widget.CardView
+            android:id="@+id/tecnico_card"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_width="140dp"
+            android:layout_height="190dp"
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imgView"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/tcm_circle_background"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_room_service_black_24dp" />
+
+                <TextView
+                    android:id="@+id/txtViewTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/cardview_compat_inset_shadow"
+                    android:gravity="center"
+                    android:text="Tecnico a su casa"
+                    android:textStyle="bold" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/txtViewDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="Pedir un tecnico a domicilio" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/bank_ideas"
+            android:layout_width="140dp"
+            android:layout_height="190dp"
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imgView2"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/circlebackgroundtcm"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_add_shopping_cart_black_24dp" />
+
+                <TextView
+                    android:id="@+id/txtViewTitle2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center"
+                    android:text="Tienda"
+                    android:textStyle="bold" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/txtViewDescription2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="Comprar algo de la tienda" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:clipToPadding="false"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <android.support.v7.widget.CardView
+            android:id="@+id/bank_add"
+            android:layout_width="140dp"
+            android:layout_height="190dp"
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imgView3"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/circlebackgroundtcm"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_airport_shuttle_black_24dp" />
+
+                <TextView
+                    android:id="@+id/txtViewTitle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center"
+                    android:text="Recoger equipo"
+                    android:textStyle="bold" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/txtViewDescription3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="Mandar a recoger el equipo"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/bank_links"
+            android:layout_width="140dp"
+            android:layout_height="190dp"
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imgView4"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/circlebackgroundtcm"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_computer_black_24dp" />
+
+                <TextView
+                    android:id="@+id/txtViewTitle4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center"
+                    android:text="Estatus del equipo"
+                    android:textStyle="bold" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/txtViewDescription4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:textColor="@android:color/darker_gray"
+                    android:text="Estado en el que se encuentra su equipo" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</LinearLayout>
