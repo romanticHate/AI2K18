@@ -13,7 +13,7 @@
         android:layout_height="23dp"
         android:text="TURBO COMPUTACIÓN DE MAZATLÁN"
         android:textColor="@color/splash_white"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -101,7 +101,7 @@
                     android:id="@+id/imgView2"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/circlebackgroundtcm"
+                    android:background="@drawable/tcm_circle_background"
                     android:padding="10dp"
                     android:src="@drawable/ic_add_shopping_cart_black_24dp" />
 
@@ -152,7 +152,7 @@
                     android:id="@+id/imgView3"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/circlebackgroundtcm"
+                    android:background="@drawable/tcm_circle_background"
                     android:padding="10dp"
                     android:src="@drawable/ic_airport_shuttle_black_24dp" />
 
@@ -195,7 +195,7 @@
                     android:id="@+id/imgView4"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:background="@drawable/circlebackgroundtcm"
+                    android:background="@drawable/tcm_circle_background"
                     android:padding="10dp"
                     android:src="@drawable/ic_computer_black_24dp" />
 
