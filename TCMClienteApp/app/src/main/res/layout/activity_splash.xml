@@ -11,7 +11,7 @@
         android:id="@+id/textViewTextoLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TURBO COMPUTACION DE MAZATLAN"
+        android:text="TURBO COMPUTACIÓN DE MAZATLÁN"
         android:textColor="@color/splash_white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
