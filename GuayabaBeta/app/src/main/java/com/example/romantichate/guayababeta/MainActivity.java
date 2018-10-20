@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextName;
     private Button buttonAdd;
     private Spinner spinnerGender;
-
+    //region Code: Basura
     //DatabaseReference databaseUsers;
+    //endregion
     FirebaseFirestore mFireStore;
 
     @Override
@@ -35,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mFireStore = FirebaseFirestore.getInstance();
-
+        //region Code: Basura
         //databaseUsers = FirebaseDatabase.getInstance().getReference("users");
-
+        //endregion
         editTextName = findViewById(R.id.editTextName);
         buttonAdd = findViewById(R.id.buttonAdd);
         spinnerGender = findViewById(R.id.spinnerGender);
@@ -45,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //region Code: Basura
                 //addUser();
+                //endregion
                 addDataToFireBase();
             }
         });
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private void addDataToFireBase() {
         String name = editTextName.getText().toString().trim();
         String gender = spinnerGender.getSelectedItem().toString();
+
         Map<String, String> userMap = new HashMap<>();
         userMap.put("name", name);
         userMap.put("gender", gender);
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentReference documentReference) {
                 Toast.makeText(MainActivity.this,"User add to fireBase DB",Toast.LENGTH_LONG).show();
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -71,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    //region  Code: basura
 /*
     private void addUser(){
 
@@ -92,4 +98,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
     */
+//endregion
 }
