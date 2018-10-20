@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "182818577173",
+    "firebase_url": "https://ai-firebasedb.firebaseio.com",
+    "project_id": "ai-firebasedb",
+    "storage_bucket": "ai-firebasedb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182818577173:android:5d97c7bb26dbb864",
+        "android_client_info": {
+          "package_name": "com.example.romantichate.guayababeta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "182818577173-1ivaidk7grb9kujkdke1l2tkkg99ue8u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.romantichate.guayababeta",
+            "certificate_hash": "2554eedbf2ba09e1a3239c58ce9ec79139607235"
+          }
+        },
+        {
+          "client_id": "182818577173-s8fq3che9socao3e599o1p7l4fe0oalb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEvFQg-D-hjX5dO2eDjvOpk9KayA_fCQM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "182818577173-s8fq3che9socao3e599o1p7l4fe0oalb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

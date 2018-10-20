@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Guayaba Beta</string>
+
+    <array name="gender">
+        <item>Masculino</item>
+        <item>Femenino</item>
+    </array>
+</resources>
