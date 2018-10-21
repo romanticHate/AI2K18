@@ -42,10 +42,10 @@ import javax.annotation.Nullable;
 public class MainActivity extends AppCompatActivity {
 
     private EditText editTextName;
-    private TextView textViewMsg;
     private Button buttonAdd,buttonLoad;
     private Spinner spinnerGender;
     //region Code: Basura
+    //private TextView textViewMsg;
     //DatabaseReference databaseUsers;
     //endregion
     FirebaseFirestore mFireStore;
@@ -64,19 +64,16 @@ public class MainActivity extends AppCompatActivity {
         userList = new ArrayList<>();
         userListAdapter = new UserListAdapter(userList);
 
-        recyclerViewList = (RecyclerView)findViewById(R.id.recyclerViewList);
-        recyclerViewList.setHasFixedSize(true);
-        recyclerViewList.setLayoutManager(new LinearLayoutManager(this));
-        recyclerViewList.setAdapter(userListAdapter);
-
         //FireStore Instance
         mFireStore = FirebaseFirestore.getInstance();
         //region Code: Basura
         //databaseUsers = FirebaseDatabase.getInstance().getReference("users");
         //endregion
 
-        //UI Controls
-        textViewMsg = findViewById(R.id.textViewMsg);
+        //UI Control's
+        //region Code: Basura
+        //textViewMsg = findViewById(R.id.textViewMsg);
+        //endregion
         editTextName = findViewById(R.id.editTextName);
         buttonAdd = findViewById(R.id.buttonAdd);
         buttonLoad = findViewById(R.id.buttonLoad);
@@ -84,6 +81,12 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewList = findViewById(R.id.recyclerViewList);
 
+        recyclerViewList = findViewById(R.id.recyclerViewList);
+        recyclerViewList.setHasFixedSize(true);
+        recyclerViewList.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewList.setAdapter(userListAdapter);
+
+        //EventListener's
         mFireStore.collection("users").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
@@ -105,12 +108,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-        //EventListener's
+        //region Codigo viejo
+        /*
         buttonLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mFireStore.collection("users").document("xyz").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                mFireStore.collection("users").document().get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if(task.isSuccessful()){
@@ -124,7 +127,10 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+        */
+        //endregion
 
+        //EventListener's
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 //addUser();
                 //endregion
                 addDataToFireBase();
+                editTextName.setText("");
             }
         });
     }
@@ -144,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         userMap.put("name", name);
         userMap.put("gender", gender);
 
-        mFireStore.collection("users").document("xyz").set(userMap).addOnFailureListener(new OnFailureListener() {
+        mFireStore.collection("users").document().set(userMap).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
 
@@ -152,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //region codigo viejito
         /*
         mFireStore.collection("users").add(userMap).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
@@ -167,7 +175,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         */
+        //endregion
     }
+
     //region  Code: basura
 /*
     private void addUser(){
