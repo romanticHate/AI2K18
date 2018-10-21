@@ -1,8 +1,11 @@
 package com.example.romantichate.guayababeta;
 
+import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -18,15 +21,26 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.annotation.Nullable;
+
+
 
 
 public class MainActivity extends AppCompatActivity {
+
     private EditText editTextName;
     private TextView textViewMsg;
     private Button buttonAdd,buttonLoad;
@@ -36,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
     //endregion
     FirebaseFirestore mFireStore;
 
+    private RecyclerView recyclerViewList;
+    private List<User> userList;
+    public UserListAdapter userListAdapter;
+
     private static final String FIRE_LOG = "Fire_Log";
 
     @Override
@@ -43,16 +61,52 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        userList = new ArrayList<>();
+        userListAdapter = new UserListAdapter(userList);
+
+        recyclerViewList = (RecyclerView)findViewById(R.id.recyclerViewList);
+        recyclerViewList.setHasFixedSize(true);
+        recyclerViewList.setLayoutManager(new LinearLayoutManager(this));
+        recyclerViewList.setAdapter(userListAdapter);
+
+        //FireStore Instance
         mFireStore = FirebaseFirestore.getInstance();
         //region Code: Basura
         //databaseUsers = FirebaseDatabase.getInstance().getReference("users");
         //endregion
+
+        //UI Controls
         textViewMsg = findViewById(R.id.textViewMsg);
         editTextName = findViewById(R.id.editTextName);
         buttonAdd = findViewById(R.id.buttonAdd);
         buttonLoad = findViewById(R.id.buttonLoad);
         spinnerGender = findViewById(R.id.spinnerGender);
 
+        recyclerViewList = findViewById(R.id.recyclerViewList);
+
+        mFireStore.collection("users").addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                if(e != null){
+
+                    Log.d(FIRE_LOG,"Error: "+e.getMessage());
+                }
+                for(DocumentChange doc: queryDocumentSnapshots.getDocumentChanges()){
+
+                    if(doc.getType() == DocumentChange.Type.ADDED){
+
+                       User user = doc.getDocument().toObject(User.class);
+                       userList.add(user);
+
+                        userListAdapter.notifyDataSetChanged();
+                    }
+                }
+            }
+        });
+
+
+
+        //EventListener's
         buttonLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             DocumentSnapshot documentSnapshot = task.getResult();
                             String name = documentSnapshot.getString("name");
-                            textViewMsg.setText("Welcome guayaba user:" + name);
+                            textViewMsg.setText("Welcome guayaba user: " + name);
                         }else{
                             Log.d(FIRE_LOG,"Error: "+task.getException().getMessage());
                         }
